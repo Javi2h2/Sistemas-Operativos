@@ -38,7 +38,7 @@ jobs:
     runs-on: windows-latest
     needs: build
     environment:
-      name: 'Production'
+      name: 'index.html'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
     steps:
@@ -52,6 +52,6 @@ jobs:
         uses: azure/webapps-deploy@v2
         with:
           app-name: 'PaginaInicio'
-          slot-name: 'Production'
+          slot-name: 'index.html'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_6CF2219F0D094B288DF922A14F4909F7 }}
           package: .
